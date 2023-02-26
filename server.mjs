@@ -1,5 +1,7 @@
 import express from 'express';
-
+import morgan from 'morgan';
+import moment from 'moment'
+import momentTZ from 'moment-timezone';
 import mongoose from 'mongoose';
 
 
@@ -17,6 +19,7 @@ const productModel = mongoose.model('products', productSchema);
 
 const app = express()
 app.use(express.json())
+app.use(morgan('dev'))
 
 const PORT = process.env.PORT || 5001;
 
